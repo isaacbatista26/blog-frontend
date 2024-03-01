@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
+import BlueButton from "@/components/BlueButton";
 export default function Navbar() {
   const [isClick, setisClick] = useState(false);
 
@@ -56,11 +57,7 @@ export default function Navbar() {
               </div>
 
               <div className="flex items-center gap-11">
-                <button className="rounded-full py-2 px-4 bg-gradient-to-r from-[#1C2337] to-[#5C86F2]">
-                  <p className="text-white hover:text-stone-300">
-                    Mapa de Calor
-                  </p>
-                </button>
+                <BlueButton>Mapa de Calor</BlueButton>
                 <button>
                   <Image
                     src="/Botão_login_init.svg"
