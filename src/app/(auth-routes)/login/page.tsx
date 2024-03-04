@@ -1,6 +1,33 @@
+'use client'
+
+import { signIn } from "next-auth/react"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
+import { SyntheticEvent, useState } from "react"
 
 export default function Login() {
+    const [email, setEmail] = useState<string>('')
+    const [password, setPassword] = useState<string>('')
+
+    const router = useRouter()
+
+    async function handleSubmit(event: SyntheticEvent) {
+        event.preventDefault()
+
+        const result = await signIn('credentials', {
+            email,
+            password,
+            redirect: false
+        })
+
+        if (result?.error) {
+            console.log(result)
+            return
+        } 
+
+        router.replace('/private')
+    }
+
     return(
         <div className=" h-screen">
             <div className="flex">
@@ -21,7 +48,7 @@ export default function Login() {
                             alt="Logo"
                         />
                     </div>
-                    <form className="mt-8">
+                    <form className="mt-8" onSubmit={handleSubmit}>
                         <div className="mb-4">
                             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
                                 Login:
@@ -29,7 +56,8 @@ export default function Login() {
                             <input className="shadow appearance-none border rounded-full w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                 id="username"
                                 type="text"
-                                placeholder="Escreva seu endereço de email "
+                                placeholder="Escreva seu endereço de email"
+                                onChange={(e) => setEmail(e.target.value)}
                             />
                         </div>
                         <div className="mb-6">
@@ -40,12 +68,13 @@ export default function Login() {
                                 id="password"
                                 type="password"
                                 placeholder="Escreva sua senha"
+                                onChange={(e) => setPassword(e.target.value)}
                             />
                         </div>
                         <div className="flex flex-col items-center justify-between">
                             <button
                                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline mb-4"
-                                type="button"
+                                type="submit"
                             >
                                 Entrar
                             </button>
