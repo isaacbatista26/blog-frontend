@@ -4,8 +4,11 @@ import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
 import BlueButton from "@/components/BlueButton";
+import { useRouter } from 'next/navigation'
+
 export default function Navbar() {
   const [isClick, setisClick] = useState(false);
+  const router = useRouter()
 
   const toggleNavBar = () => {
     setisClick(!isClick);
@@ -58,7 +61,7 @@ export default function Navbar() {
 
               <div className="flex items-center gap-11">
                 <BlueButton>Mapa de Calor</BlueButton>
-                <button>
+                <button type="button" onClick={() => router.push('/login')}>
                   <Image
                     src="/Botão_login_init.svg"
                     width={30}
