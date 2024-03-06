@@ -12,11 +12,10 @@ export default async function Page() {
     cache: "no-store",
   });
   const coords: Coordinate[] = await data.json();
-  const radius = 5000;
   return (
     <div className="flex flex-col items-center justify-center gap-16 py-16">
       <h1 className="font-bold text-6xl text-zinc-700">Mapa de Calor</h1>
-      <MapContainer coords={coords} markerRadius={radius} />
+      <MapContainer coords={coords} />
     </div>
   );
 }

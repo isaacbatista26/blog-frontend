@@ -4,9 +4,11 @@ import { Search } from "lucide-react";
 export default function SearchLocationForm({
   setMarker,
   resetMarker,
+  setmapPosition,
 }: {
   setMarker: (marker: { lat: number; lng: number }) => void;
   resetMarker: () => void;
+  setmapPosition: (position: { lat: number; lng: number }) => void;
 }) {
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -21,12 +23,13 @@ export default function SearchLocationForm({
     if (data.results && data.results.length > 0) {
       const { lat, lng } = data.results[0].geometry.location;
       setMarker({ lat, lng });
+      setmapPosition({ lat, lng });
     }
   };
 
   return (
-    <form onSubmit={handleSearch}>
-      <div className="flex flex-row items-center justify-center md:w-1/2 md:min-w-[600px] w-full h-12 rounded-xl bg-white shadow-2xl">
+    <form onSubmit={handleSearch} className="lg:w-1/2 w-full">
+      <div className="flex flex-row items-center justify-center w-full md:min-w-[600px] h-12 rounded-xl bg-white shadow-2xl">
         <input
           type="text"
           placeholder="Busque por uma rua ou bairro"
