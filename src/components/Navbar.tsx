@@ -57,7 +57,7 @@ export default function Navbar() {
               </div>
 
               <div className="flex items-center gap-11">
-                <BlueButton>Mapa de Calor</BlueButton>
+                <BlueButton link="/mapa">Mapa de Calor</BlueButton>
                 <button>
                   <Image
                     src="/Botão_login_init.svg"
