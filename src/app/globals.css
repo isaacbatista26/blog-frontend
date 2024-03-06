@@ -5,3 +5,15 @@
 .bg-image {
   background-image: url("/background.svg");
 }
+
+.navbar_white{
+  @apply text-white
+}
+
+.navbar_blue{
+  @apply text-[#00619A]
+}
+
+.navbar_hover{
+  @apply hover:text-stone-600 p-2
+}
