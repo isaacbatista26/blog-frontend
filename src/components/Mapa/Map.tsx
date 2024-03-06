@@ -235,7 +235,16 @@ export default function Map({
             visible ? "-bottom-[472px]" : "bottom-0"
           } left-0 right-0 z-10`}
         >
-          <FilterPhone visible={visible} setVisible={toggleVisible} />
+          <FilterPhone
+            visible={visible}
+            setVisible={toggleVisible}
+            filterOptions={{
+              days: [],
+              radius: 3000,
+            }}
+            setFilterOptions={setFilterOptions}
+            mosquitoCounter={mosquitoCounter}
+          />
         </div>
       </div>
     );
