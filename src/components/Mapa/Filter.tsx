@@ -30,13 +30,19 @@ export default function Filter({
     setFilterOptions({ days: date, radius });
   };
 
+  const resetFilter = () => {
+    setDate(initialDays);
+    setRadius(3000);
+    setFilterOptions({ days: initialDays, radius: 3000 });
+  };
+
   React.useEffect(() => {}, [mosquitoCounter]);
 
   return (
     <>
       {visible ? (
-        <ScrollArea className="h-[650px] w-full rounded-md border-none">
-          <div className="flex flex-col gap-4 md:w-[325px] w-full bg-zinc-300 border border-zinc-400 rounded-2xl bg-opacity-20 backdrop-blur-sm">
+        <ScrollArea className="h-[70vh] w-full  rounded-2xl shadow-2xl">
+          <div className="flex flex-col gap-4 md:w-[325px] w-full bg-zinc-300 border  rounded-2xl bg-opacity-20 backdrop-blur-sm">
             <div className="flex flex-row justify-between p-5">
               <h3 className="text-lg font-medium text-zinc-700">Filtros</h3>
               <div>
@@ -85,7 +91,7 @@ export default function Filter({
               <div className="flex flex-row justify-between items-center gap-2 text-sm text-zinc-500">
                 0
                 <Slider
-                  defaultValue={[30]}
+                  defaultValue={[3000]}
                   max={10000}
                   step={1}
                   onValueChange={(value) => setRadius(value[0])}
@@ -106,7 +112,7 @@ export default function Filter({
               </button>
               <button
                 className="w-full h-14 bg-white text-[#00619A] rounded-b-xl"
-                onClick={handleFilter}
+                onClick={resetFilter}
               >
                 Resetar Filtros
               </button>
