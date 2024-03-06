@@ -23,7 +23,7 @@ export default function Filter({
   mosquitoCounter: number;
 }) {
   const initialDays: Date[] = [];
-  const [date, setDate] = React.useState<Date[] | undefined>(initialDays);
+  const [date, setDate] = React.useState<Date[]>(initialDays);
   const [radius, setRadius] = React.useState<number>(3000);
 
   const handleFilter = () => {
@@ -63,7 +63,7 @@ export default function Filter({
               <Calendar
                 mode="multiple"
                 selected={date}
-                onSelect={setDate}
+                onSelect={(value: Date[] | undefined) => setDate(value || [])}
                 className="rounded-md"
               />
             </div>
@@ -99,10 +99,16 @@ export default function Filter({
             </div>
             <div>
               <button
-                className="w-full h-14 bg-[#0077C2] text-white rounded-b-xl"
+                className="w-full h-14 bg-[#0077C2] text-white"
                 onClick={handleFilter}
               >
                 Aplicar Filtros
+              </button>
+              <button
+                className="w-full h-14 bg-white text-[#00619A] rounded-b-xl"
+                onClick={handleFilter}
+              >
+                Resetar Filtros
               </button>
             </div>
           </div>
