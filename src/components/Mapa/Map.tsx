@@ -171,7 +171,7 @@ export default function Map({
 
   if (isLoaded) {
     return (
-      <div className="w-full md:h-[70vh] h-[300px] flex flex-row px-10">
+      <div className="w-full md:h-[90vh] h-[300px] flex flex-row px-10">
         <GoogleMap
           mapContainerStyle={{
             width: "100%",
