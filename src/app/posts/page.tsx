@@ -50,16 +50,9 @@ const tags = [
   },
 ];
 
-const imageStyle = {
-  borderRadius: "30px",
-  boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",
-  width: "100%",
-  maxHeight: "600px",
-  zIndex: 0,
-};
 
 export default async function Page() {
-  const data = await fetch("http://3.141.194.138:3000/posts/");
+  const data = await fetch("http://3.141.194.138:3000/posts/", {cache: "no-store"});
   const posts: Post[] = await data.json();
   const orderedPosts = posts.sort((a, b) => {
     const dateA = new Date(a.createdAt).getTime();
@@ -86,25 +79,14 @@ export default async function Page() {
         ))}
       </div>
       <div className="container flex flex-col items-center relative">
-        {/*
-         <div className="relative h-[600px]">
+        <div className="flex h-[40vw] w-[95vw] mx-auto border-solid rounded-3xl justify-center items-center relative overflow-hidden">
           <Image
             src={orderedPosts[0].image}
-            alt="Picture of the author"
-            layout="fill"
-            objectFit="cover"
-            objectPosition="center"
-            className="z-0"
+            alt={orderedPosts[0].title}
+            layout='fill'
+            objectFit='cover'
           />
         </div>
-        */}
-        <Image
-          src={orderedPosts[0].image}
-          alt="Picture of the author"
-          width={1000}
-          height={500}
-          style={imageStyle}
-        />
         <div className="flex flex-row justify-between p-10 rounded-3xl shadow-xl w-3/4 mx-auto z-10 -top-20 relative bg-white">
           <div className="space-y-4 w-1/2">
             <h1 className="text-3xl font-black text-zinc-400">

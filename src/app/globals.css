@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @layer base {
   :root {
@@ -77,4 +78,28 @@
 
 * {
   font-family: "Roboto", sans-serif;
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+.navbar_white{
+  @apply text-white
+}
+
+.navbar_blue{
+  @apply text-[#00619A]
+}
+
+.navbar_hover{
+  @apply hover:text-stone-600 p-2
+}
+
+.navbar_header{
+  @apply max-w-[1800px] mx-auto sm:px-6 lg:px-8 top-0 left-0 right-0 z-10 justify-between px-6 py-4 box-border mb-14
 }
