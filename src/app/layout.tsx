@@ -9,10 +9,10 @@ export const metadata: Metadata = {
   description: "Vector Tracking System",
 };
 
-const roboto = Roboto({
-  weight: ["100", "300", "400", "500", "700", "900"],
-  subsets: ["latin"],
-});
+ const roboto = Roboto({
+   weight: ["100", "300", "400", "500", "700", "900"],
+   subsets: ["latin"],
+ });
 
 export default function RootLayout({
   children,

@@ -1,10 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import BlueButton from "@/components/Navbar/BlueButton";
 import { NavIconDefault, NavIconMain, NavLoginDefault, NavLoginMain } from "@/components/Navbar/NavIcon";
+import { LoginButton } from "@/components/auth/login-button";
 
 
 export default function Navbar() {
@@ -56,7 +58,7 @@ export default function Navbar() {
                 <Link href="/mapa">
                   <BlueButton>Mapa de Calor</BlueButton>
                 </Link>
-                <Link href="/login">
+                <Link href="/auth/login">
                   <button>
                     {pathname === "/" ? <NavLoginMain /> : <NavLoginDefault />}
                   </button>
