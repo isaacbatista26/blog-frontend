@@ -14,6 +14,9 @@ const nextConfig = {
       {
         hostname: "cdn.thewirecutter.com",
       },
+      {
+        hostname: "drive.google.com",
+      },
     ],
   },
 };
