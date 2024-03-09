@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
 import BlueButton from "@/components/BlueButton";
+import { LoginButton } from "@/components/auth/login-button";
+
 export default function Navbar() {
   const [isClick, setisClick] = useState(false);
 
@@ -57,15 +59,19 @@ export default function Navbar() {
               </div>
 
               <div className="flex items-center gap-11">
-                <BlueButton link="/mapa">Mapa de Calor</BlueButton>
-                <button>
-                  <Image
-                    src="/Botão_login_init.svg"
-                    width={30}
-                    height={30}
-                    alt="Login"
-                  />
-                </button>
+
+                <BlueButton>Mapa de Calor</BlueButton>
+                <LoginButton>
+                  <button type="button">
+                    <Image
+                      src="/Botão_login_init.svg"
+                      width={30}
+                      height={30}
+                      alt="Login"
+                    />
+                  </button>
+                </LoginButton>
+
               </div>
             </div>
           </div>
