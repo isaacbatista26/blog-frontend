@@ -88,3 +88,18 @@
     @apply bg-background text-foreground;
   }
 }
+.navbar_white{
+  @apply text-white
+}
+
+.navbar_blue{
+  @apply text-[#00619A]
+}
+
+.navbar_hover{
+  @apply hover:text-stone-600 p-2
+}
+
+.navbar_header{
+  @apply max-w-[1800px] mx-auto sm:px-6 lg:px-8 top-0 left-0 right-0 z-10 justify-between px-6 py-4 box-border mb-14
+}

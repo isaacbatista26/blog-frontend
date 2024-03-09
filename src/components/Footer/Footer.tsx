@@ -69,7 +69,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <a className="text-gray-600 hover:text-gray-800 cursor-pointer">
-                    Mapa de
+                    Mapa de Calor
                   </a>
                 </li>
               </nav>
