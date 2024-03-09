@@ -1,4 +1,5 @@
 import Image from "next/image";
+import styles from "./page.module.css"
 import { ShareIcon, WhatsappIcon, InstaIcon } from "@/components/ShareIcons/ShareIcons";
 
 interface Post {
@@ -70,7 +71,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
       </div>
       
       <article className="my-20">
-        <p>{post.content}</p>
+        
+        <div dangerouslySetInnerHTML={{ __html: post.content }} className={styles.UserContent}></div>
       </article>
       <hr className="flex w-[95vw] mx-auto my-6 border-solid border-gray-300 rounded-full border"/>
     </div>

@@ -52,7 +52,7 @@ const tags = [
 
 
 export default async function Page() {
-  const data = await fetch("http://3.141.194.138:3000/posts/");
+  const data = await fetch("http://3.141.194.138:3000/posts/", {cache: "no-store"});
   const posts: Post[] = await data.json();
   const orderedPosts = posts.sort((a, b) => {
     const dateA = new Date(a.createdAt).getTime();
