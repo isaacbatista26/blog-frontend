@@ -59,7 +59,6 @@ export default function Navbar() {
               </div>
 
               <div className="flex items-center gap-11">
-
                 <BlueButton>Mapa de Calor</BlueButton>
                 <LoginButton>
                   <button type="button">
@@ -71,7 +70,6 @@ export default function Navbar() {
                     />
                   </button>
                 </LoginButton>
-
               </div>
             </div>
           </div>
