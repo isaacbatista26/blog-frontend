@@ -55,7 +55,6 @@ const imageStyle = {
   boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",
   width: "100%",
   maxHeight: "600px",
-  objectFit: "cover",
   zIndex: 0,
 };
 
