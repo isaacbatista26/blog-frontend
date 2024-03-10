@@ -1,4 +1,5 @@
 import { Badge } from "lucide-react";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -80,19 +81,34 @@ export default function Footer() {
               </h2>
               <nav className="list-none mb-10 flex flex-col space-y-3 text-sm font-normal">
                 <li className="flex flex-row items-center gap-2">
-                  <Badge />
+                  <Image
+                    src="/home/whatsapp.png"
+                    alt="Sobre"
+                    width={22}
+                    height={22}
+                  />
                   <a className="font-normal text-gray-600 hover:text-gray-800 cursor-pointer">
                     +55 61 5555 5555
                   </a>
                 </li>
                 <li className="flex flex-row items-center gap-2">
-                  <Badge />
+                  <Image
+                    src="/home/whatsapp.png"
+                    alt="Sobre"
+                    width={22}
+                    height={22}
+                  />
                   <a className="font-normal text-gray-600 hover:text-gray-800 cursor-pointer">
                     +55 61 5555 5555
                   </a>
                 </li>
                 <li className="flex flex-row items-center gap-2">
-                  <Badge />
+                  <Image
+                    src="/home/whatsapp.png"
+                    alt="Sobre"
+                    width={22}
+                    height={22}
+                  />
                   <a className="font-normal text-gray-600 hover:text-gray-800 cursor-pointer">
                     +55 61 5555 5555
                   </a>

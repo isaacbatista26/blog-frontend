@@ -24,10 +24,8 @@ export default async function PostCard({ post }: { post: Post }) {
         <Image
           src={post.image}
           alt={post.title}
-          layout="fill"
-          objectFit="cover"
-          objectPosition="center"
-          className="z-0 max-h-52"
+          fill
+          className="z-0 max-h-52 object-cover object-center"
         />
       </div>
       <div className="p-6 flex flex-col justify-between gap-4 h-full">
