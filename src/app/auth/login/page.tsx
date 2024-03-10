@@ -8,8 +8,7 @@ const LoginPage = () => {
         <Image
           src="/login/code.png"
           layout="fill"
-          objectFit="cover"
-          objectPosition="center"
+          className="object-cover object-center"
           alt="Code"
         />
       </div>
@@ -21,8 +20,7 @@ const LoginPage = () => {
           src="/login/Adornos.png"
           fill
           alt="adornos"
-          objectFit="cover"
-          objectPosition="center"
+          className="object-cover object-center"
         />
       </div>
     </div>
