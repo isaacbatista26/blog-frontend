@@ -5,9 +5,13 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import BlueButton from "@/components/Navbar/BlueButton";
-import { NavIconDefault, NavIconMain, NavLoginDefault, NavLoginMain } from "@/components/Navbar/NavIcon";
+import {
+  NavIconDefault,
+  NavIconMain,
+  NavLoginDefault,
+  NavLoginMain,
+} from "@/components/Navbar/NavIcon";
 import { LoginButton } from "@/components/auth/login-button";
-
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -19,12 +23,14 @@ export default function Navbar() {
 
   useEffect(() => {
     setisClick(false);
-
   }, [pathname]);
 
   return (
-    <header className={pathname === '/' ? 
-      "navbar_header absolute" : "navbar_header relative"}>
+    <header
+      className={
+        pathname === "/" ? "navbar_header absolute" : "navbar_header relative"
+      }
+    >
       <nav className="container">
         <div className="px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
@@ -34,22 +40,46 @@ export default function Navbar() {
                   {pathname === "/" ? <NavIconMain /> : <NavIconDefault />}
                 </Link>
                 <Link href="/">
-                  <p className={pathname === '/' ? 
-                  "navbar_white" : "navbar_blue"}>
-                  VECTOR TRACKING SYSTEM
+                  <p
+                    className={
+                      pathname === "/" ? "navbar_white" : "navbar_blue"
+                    }
+                  >
+                    VECTOR TRACKING SYSTEM
                   </p>
                 </Link>
               </div>
             </div>
             <div className="hidden lg:flex gap-11">
               <div className="ml-4 flex items-center gap-11">
-                <Link href="#" className={pathname === '/' ? "navbar_white navbar_hover" : "navbar_blue navbar_hover"}>
+                <Link
+                  href="#"
+                  className={
+                    pathname === "/"
+                      ? "navbar_white navbar_hover"
+                      : "navbar_blue navbar_hover"
+                  }
+                >
                   <p>Sobre nós</p>
                 </Link>
-                <Link href="#" className={pathname === '/' ? "navbar_white navbar_hover" : "navbar_blue navbar_hover"}>
+                <Link
+                  href="#"
+                  className={
+                    pathname === "/"
+                      ? "navbar_white navbar_hover"
+                      : "navbar_blue navbar_hover"
+                  }
+                >
                   <p>Contato</p>
                 </Link>
-                <Link href="/posts" className={pathname === '/' ? "navbar_white navbar_hover" : "navbar_blue navbar_hover"}>
+                <Link
+                  href="/posts"
+                  className={
+                    pathname === "/"
+                      ? "navbar_white navbar_hover"
+                      : "navbar_blue navbar_hover"
+                  }
+                >
                   <p>Publicações</p>
                 </Link>
               </div>
