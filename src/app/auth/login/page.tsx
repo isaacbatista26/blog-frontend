@@ -7,7 +7,7 @@ const LoginPage = () => {
       <div className=" w-1/2 h-screen relative overflow-hidden">
         <Image
           src="/login/code.png"
-          layout="fill"
+          fill
           className="object-cover object-center"
           alt="Code"
         />
