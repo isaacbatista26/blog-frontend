@@ -5,6 +5,7 @@ import Coleta from "@/components/Inicio/Coleta";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import Participantes from "@/components/participantes/participantes";
+import SaibaMais from "@/components/Inicio/SaibaMais";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <Background />
       <Sobre />
       <Coleta />
+      <SaibaMais />
       <Apoio />
       <Participantes />
       <Footer />
