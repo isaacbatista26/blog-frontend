@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { ArrowUpRight } from "lucide-react";
 import PostCard from "@/components/Posts/PostCard";
 import Image from "next/image";
+
+import Link from "next/link";
 export const metadata: Metadata = {
   title: "Posts",
   description: "Vector Tracking System",
@@ -10,11 +12,13 @@ interface Post {
   id: string;
   title: string;
   description: string;
-  content: string;
   image: string;
   createdAt: string;
   tags: string[];
-  authorId: string;
+  authorProps: {
+    name: string;
+    image: string;
+  };
 }
 
 const tags = [
@@ -50,9 +54,10 @@ const tags = [
   },
 ];
 
-
 export default async function Page() {
-  const data = await fetch("http://3.141.194.138:3000/posts/", {cache: "no-store"});
+  const data = await fetch("http://3.141.194.138:3000/posts/card", {
+    cache: "no-store",
+  });
   const posts: Post[] = await data.json();
   const orderedPosts = posts.sort((a, b) => {
     const dateA = new Date(a.createdAt).getTime();
@@ -79,12 +84,12 @@ export default async function Page() {
         ))}
       </div>
       <div className="container flex flex-col items-center relative">
-        <div className="flex h-[40vw] w-[95vw] mx-auto border-solid rounded-3xl justify-center items-center relative overflow-hidden">
+        <div className="flex h-[500px] w-full mx-auto border-solid rounded-3xl justify-center items-center relative overflow-hidden">
           <Image
             src={orderedPosts[0].image}
             alt={orderedPosts[0].title}
-            layout='fill'
-            objectFit='cover'
+            layout="fill"
+            objectFit="cover"
           />
         </div>
         <div className="flex flex-row justify-between p-10 rounded-3xl shadow-xl w-3/4 mx-auto z-10 -top-20 relative bg-white">
@@ -101,7 +106,7 @@ export default async function Page() {
             <p className="text-sm font-light text-zinc-500">8 min.</p>
           </div>
           <div className="flex flex-col items-end justify-between w-1/2">
-            <div className="flex flex-row">
+            <div className="grid grid-cols-3 w-full">
               {orderedPosts[0].tags.map((tag) => (
                 <button
                   key={tag}
@@ -111,7 +116,9 @@ export default async function Page() {
                 </button>
               ))}
             </div>
-            <ArrowUpRight color="#CCCCCC" />
+            <Link href={`/posts/${orderedPosts[0].id}`}>
+              <ArrowUpRight color="#CCCCCC" />
+            </Link>
           </div>
         </div>
       </div>
