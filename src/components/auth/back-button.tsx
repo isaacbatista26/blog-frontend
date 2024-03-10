@@ -3,15 +3,15 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
-interface BackButtonProps {
-  label: string;
-  href: string;
-}
-
-export const BackButton = ({ href, label }: BackButtonProps) => {
+export default function BackButton() {
   return (
-    <Button variant="link" className="text-[#0077C2] w-full" size="sm" asChild>
-      <Link href={href}>{label}</Link>
+    <Button
+      variant="link"
+      className="text-[#0077C2] w-full justify-end items-start"
+      size="sm"
+      asChild
+    >
+      <Link href="/esqueceu-senha">Esqueceu a senha?</Link>
     </Button>
   );
-};
+}

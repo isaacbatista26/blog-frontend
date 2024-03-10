@@ -22,7 +22,7 @@ import { Button } from "@/components/ui/button";
 import { FormError } from "../errors/form-error";
 import { FormSuccess } from "../errors/form-success";
 import { login } from "../../../actions/login";
-import { BackButton } from "./back-button";
+import BackButton from "./back-button";
 import { Link } from "lucide-react";
 
 export const LoginForm = () => {
@@ -51,11 +51,7 @@ export const LoginForm = () => {
   };
 
   return (
-    <CardWrapper
-      backButtonLabel="Esqueceu a senha?"
-      backButtonHref="/auth/register"
-      showSocial
-    >
+    <CardWrapper showSocial>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <div className="space-y-5">
@@ -104,8 +100,8 @@ export const LoginForm = () => {
           </div>
           <FormError message={error} />
           <FormSuccess message={success} />
-
-          <div className="flex flex-col justify-center gap-3 items-center">
+          <BackButton />
+          <div className="flex flex-col gap-3 items-center pt-8">
             <Button
               disabled={isPeding}
               type="submit"
