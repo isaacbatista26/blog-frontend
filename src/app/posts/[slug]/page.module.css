@@ -2,36 +2,65 @@
   @apply mx-[2%];
 }
 
-.UserContent p{
-  @apply text-zinc-700 font-normal text-base leading-6
-
+.UserContent p {
+  @apply text-zinc-700 font-normal text-base leading-6;
 }
 
 .UserContent h1 {
-  @apply text-4xl font-normal capitalize leading-[100px] text-cyan-700
+  @apply text-4xl font-normal capitalize leading-[100px] text-cyan-700;
 }
 .UserContent h2 {
-  @apply text-3xl font-normal leading-10 text-cyan-700
+  @apply text-3xl font-normal leading-10 text-cyan-700;
 }
 .UserContent h3 {
-  @apply text-2xl font-normal leading-8 text-cyan-700
+  @apply text-2xl font-normal leading-8 text-cyan-700;
 }
 .UserContent img {
   @apply mx-auto object-cover rounded-3xl my-12;
 }
 
-.UserContent h4 { @apply text-xl font-bold; }
-.UserContent h5 { @apply text-lg font-bold; }
-.UserContent h6 { @apply text-base font-bold; }
-.UserContent p { @apply text-base leading-6 mb-10; }
-.UserContent a { @apply text-blue-500; }
-.UserContent li { @apply text-base ml-10; }
-.UserContent ul { @apply list-disc; }
-.UserContent ol { @apply list-decimal; }
-.UserContent blockquote { @apply border-l-4 border-gray-300 pl-4 ml-10 italic; }
-.UserContent pre { @apply bg-gray-100 p-4 rounded-lg; }
-.UserContent code { @apply font-mono; }
-.UserContent table { @apply w-full; }
-.UserContent th { @apply bg-gray-100; }
-.UserContent td { @apply border border-gray-100; }
-.UserContent hr { @apply border-t-2 border-gray-100 my-4; }
+.UserContent h4 {
+  @apply text-xl font-bold;
+}
+.UserContent h5 {
+  @apply text-lg font-bold;
+}
+.UserContent h6 {
+  @apply text-base font-bold;
+}
+.UserContent p {
+  @apply text-base leading-6 mb-10 text-justify;
+}
+.UserContent a {
+  @apply text-blue-500;
+}
+.UserContent li {
+  @apply text-base ml-10;
+}
+.UserContent ul {
+  @apply list-disc;
+}
+.UserContent ol {
+  @apply list-decimal;
+}
+.UserContent blockquote {
+  @apply border-l-4 border-gray-300 pl-4 ml-10 italic;
+}
+.UserContent pre {
+  @apply bg-gray-100 p-4 rounded-lg;
+}
+.UserContent code {
+  @apply font-mono;
+}
+.UserContent table {
+  @apply w-full;
+}
+.UserContent th {
+  @apply bg-gray-100;
+}
+.UserContent td {
+  @apply border border-gray-100;
+}
+.UserContent hr {
+  @apply border-t-2 border-gray-100 my-4;
+}
