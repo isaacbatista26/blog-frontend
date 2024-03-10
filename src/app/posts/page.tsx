@@ -120,7 +120,9 @@ export default async function Page() {
                   </button>
                 ))}
               </div>
-              <ArrowUpRight color="#CCCCCC" />
+              <Link href={`/posts/${orderedPosts[0].id}`}>
+                <ArrowUpRight color="#CCCCCC" />
+              </Link>
             </div>
           </div>
         </div>
