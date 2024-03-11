@@ -13,8 +13,7 @@ export default async function Page() {
   });
   const coords: Coordinate[] = await data.json();
   return (
-    <div className="flex flex-col items-center justify-center gap-16 py-16">
-      <h1 className="font-bold text-6xl text-zinc-700">Mapa de Calor</h1>
+    <div className="flex flex-col items-center justify-center h-screen w-screen">
       <MapContainer coords={coords} />
     </div>
   );

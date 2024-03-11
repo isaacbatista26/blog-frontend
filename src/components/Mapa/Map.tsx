@@ -192,6 +192,7 @@ export default function Map({
               options={{
                 radius: 20,
                 opacity: 0.7,
+                maxIntensity: 5,
               }}
             />
           )}
