@@ -7,7 +7,8 @@ import {
 } from "@/components/ShareIcons/ShareIcons";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
-
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import LastPrevPost from "@/components/Posts/LastPrevPost";
 interface Post {
   id: string;
   title: string;
@@ -17,6 +18,10 @@ interface Post {
   createdAt: string;
   tags: string[];
   authorId: string;
+  authorProps: {
+    name: string;
+    image: string;
+  };
 }
 
 function dateFormat(dateString: string) {
@@ -35,6 +40,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     headers: {
       "Content-Type": "application/json",
     },
+    cache: "no-cache",
   });
 
   const post: Post = await data.json();
@@ -49,7 +55,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           fill
         />
       </div>
-      <div className="flex justify-center my-12 mx-auto">
+      <div className="container flex justify-center my-12 mx-auto">
         {post.tags.map((tag) => {
           return (
             <div key={tag} className="p-5 my-auto">
@@ -66,11 +72,21 @@ export default async function Page({ params }: { params: { slug: string } }) {
         <h1 className="text-4xl text-[#333333] text-center">{post.title}</h1>
       </article>
 
-      <div className="flex justify-center m-3">
-        <section className="p-5 my-auto">
-          por <strong>Nome do Autor</strong>
-        </section>
-        <section className="p-5 my-auto">
+      <div className="flex justify-center items-center gap-10 m-3">
+        <div className="flex items-center gap-2">
+          <Avatar className="shadow-2xl">
+            <AvatarImage
+              width={28}
+              src={post.authorProps.image}
+              alt={post.authorProps.name}
+            />
+            <AvatarFallback>VTS</AvatarFallback>
+          </Avatar>
+          <section className="">
+            por <strong>{post.authorProps.name}</strong>
+          </section>
+        </div>
+        <section className="">
           Último update: {dateFormat(post.createdAt)}
         </section>
       </div>
@@ -87,13 +103,14 @@ export default async function Page({ params }: { params: { slug: string } }) {
         </div>
       </div>
 
-      <article className="my-20">
+      <article className="container mx-auto my-20">
         <div
           dangerouslySetInnerHTML={{ __html: post.content }}
           className={styles.UserContent}
         ></div>
       </article>
-      <hr className="flex w-[95vw] mx-auto my-6 border-solid border-gray-300 rounded-full border" />
+      <hr className="flex container mx-auto my-6 border-solid border-gray-300 rounded-full border" />
+      <LastPrevPost postId={post.id} />
       <Footer />
     </div>
   );

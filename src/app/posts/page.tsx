@@ -104,8 +104,8 @@ export default async function Page() {
               <h2 className="text-2xl font-normal text-zinc-800">
                 {orderedPosts[0].title}
               </h2>
-              <p className="text-md font-light">
-                {orderedPosts[0].description.slice(0, 200)}...
+              <p className="text-md font-light line-clamp-3">
+                {orderedPosts[0].description}
               </p>
               <p className="text-sm font-light text-zinc-500">8 min.</p>
             </div>
@@ -120,7 +120,9 @@ export default async function Page() {
                   </button>
                 ))}
               </div>
-              <ArrowUpRight color="#CCCCCC" />
+              <Link href={`/posts/${orderedPosts[0].id}`}>
+                <ArrowUpRight color="#CCCCCC" />
+              </Link>
             </div>
           </div>
         </div>
