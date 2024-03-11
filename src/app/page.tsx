@@ -7,6 +7,7 @@ import Footer from "@/components/Footer/Footer";
 import Participantes from "@/components/participantes/participantes";
 import SaibaMais from "@/components/Inicio/SaibaMais";
 
+
 export default function Home() {
   return (
     <div className="relative">
