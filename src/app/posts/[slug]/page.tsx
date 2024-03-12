@@ -1,14 +1,31 @@
 import Image from "next/image";
+import { headers } from "next/headers";
 import styles from "./page.module.css";
 import {
   ShareIcon,
   WhatsappIcon,
   InstaIcon,
 } from "@/components/ShareIcons/ShareIcons";
+import { Linkedin, Github } from "lucide-react";
+import CopyToClipboard from "@/components/CopyToClipboard";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import LastPrevPost from "@/components/Posts/LastPrevPost";
+import Link from "next/link";
+
+const socialMediaIcons = {
+  LinkedIn: <Linkedin color="#333" width={24} height={24} />,
+  Whatsapp: <WhatsappIcon />,
+  Instagram: <InstaIcon />,
+  GitHub: <Github color="#333" width={24} height={24} />,
+};
+
+interface SocialMedia {
+  provider: string;
+  url: string;
+}
+
 interface Post {
   id: string;
   title: string;
@@ -21,6 +38,10 @@ interface Post {
   authorProps: {
     name: string;
     image: string;
+    socialMedia: {
+      provider: string;
+      url: string;
+    }[];
   };
 }
 
@@ -44,6 +65,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
   });
 
   const post: Post = await data.json();
+  const headersList = headers();
+  const domain = headersList.get("host") || "";
+  const fullUrl = headersList.get("referer") || "";
+
   return (
     <div>
       <Navbar />
@@ -55,7 +80,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           fill
         />
       </div>
-      <div className="container flex justify-center my-12 mx-auto">
+      <div className="flex flex-wrap justify-center my-12 mx-auto">
         {post.tags.map((tag) => {
           return (
             <div key={tag} className="p-5 my-auto">
@@ -72,7 +97,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         <h1 className="text-4xl text-[#333333] text-center">{post.title}</h1>
       </article>
 
-      <div className="flex justify-center items-center gap-10 m-3">
+      <div className="flex flex-wrap justify-center items-center gap-10 m-3">
         <div className="flex items-center gap-2">
           <Avatar className="shadow-2xl">
             <AvatarImage
@@ -91,16 +116,19 @@ export default async function Page({ params }: { params: { slug: string } }) {
         </section>
       </div>
 
-      <div className="flex justify-center mx-auto my-3">
-        <div className="p-1 my-auto">
-          <WhatsappIcon />
-        </div>
-        <div className="p-1 my-auto">
-          <ShareIcon />
-        </div>
-        <div className="p-1 my-auto">
-          <InstaIcon />
-        </div>
+      <div className="flex justify-center items-center gap-3 mx-auto my-3">
+        {post.authorProps.socialMedia.map((socialMedia: SocialMedia) => {
+          return (
+            <Link href={socialMedia.url} key={socialMedia.provider}>
+              {
+                socialMediaIcons[
+                  socialMedia.provider as keyof typeof socialMediaIcons
+                ]
+              }
+            </Link>
+          );
+        })}
+        <CopyToClipboard url={fullUrl} />
       </div>
 
       <article className="container mx-auto my-20">

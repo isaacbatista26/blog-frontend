@@ -13,9 +13,9 @@ export default async function LastPrevPost({ postId }: { postId: string }) {
   );
   const post = await data.json();
   return (
-    <section className="container flex justify-between">
+    <section className="container flex flex-col gap-8 md:gap-2 md:flex-row items-center md:items-start justify-between">
       <Link href={`/posts/${post.prevPost ? post.prevPost?.id : postId}`}>
-        <div className="flex items-center gap-2 h-48 py-6">
+        <div className="flex flex-col md:flex-row items-center gap-2 md:h-48 py-6">
           <div className="w-48 h-48 relative overflow-hidden rounded-2xl">
             <Image
               src={
@@ -37,7 +37,7 @@ export default async function LastPrevPost({ postId }: { postId: string }) {
         </div>
       </Link>
       <Link href={`/posts/${post.nextPost ? post.nextPost?.id : postId}`}>
-        <div className="flex items-center gap-2 h-48 py-6">
+        <div className="flex flex-col-reverse md:flex-row items-center gap-2 md:h-48 py-6">
           <div className="h-full text-right space-y-4 my-auto max-w-52">
             <span className="text-right text-base font-semibold text-zinc-500">
               post seguinte
