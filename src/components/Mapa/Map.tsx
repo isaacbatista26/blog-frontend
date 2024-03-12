@@ -12,7 +12,6 @@ import { options } from "@/components/Mapa/MapOptions";
 import SearchLocationForm from "@/components/Mapa/SearchLocationForm";
 import Filter from "@/components/Mapa/Filter";
 import FilterPhone from "@/components/Mapa/FilterPhone";
-import { is } from "date-fns/locale";
 
 const libraries: Libraries = ["visualization", "geometry"];
 
@@ -192,7 +191,7 @@ export default function Map({
               options={{
                 radius: 20,
                 opacity: 0.7,
-                maxIntensity: 5,
+                maxIntensity: 10,
               }}
             />
           )}
